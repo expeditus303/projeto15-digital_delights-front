@@ -78,10 +78,10 @@ button{
     background: #fff;
     margin-top: 40px;
     &:hover {
-        background: #D3D3D3;
+        background: #E8EBEF;
     }
     s &:active {
-        background: #D3D3D3;
+        background: #E8EBEF;
     }
     &:focus {
         outline: none;
