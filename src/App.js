@@ -10,11 +10,8 @@ import { useState } from 'react';
 import { UserContext } from './context/UserContext.js';
 
 
-
-
 function App() {
   const [user, setUser] = useState('');
-
 
   return (
     <BrowserRouter>
