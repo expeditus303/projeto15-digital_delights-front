@@ -75,13 +75,13 @@ button{
     font-size: 20px;
     line-height: 26px;
     text-align: center;
-    background: #000;
-    color: #ffffff;
+    background: #fff;
+    margin-top: 40px;
     &:hover {
-        background: #9c25cc;
+        background: #D3D3D3;
     }
     s &:active {
-        background: #9522c2;
+        background: #D3D3D3;
     }
     &:focus {
         outline: none;
@@ -91,14 +91,14 @@ button{
     font-weight: 400;
     font-size: 20px;
     line-height: 23px;
-    color: #ffffff;
+    color: #000;
 }
 `
 export const TextContainer = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-margin-top: 32px;
+margin-top: 15px;
 h3{
     font-size: 14px;
     line-height: 17px;
