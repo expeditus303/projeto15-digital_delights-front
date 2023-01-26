@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { URL } from "../../constants/REACT_APP_API_URL";
 import { UserContext } from "../../context/UserContext";
 
 export default function SignInPage() {
@@ -21,7 +22,7 @@ export default function SignInPage() {
     };
 
     try {
-      const promisse = await axios.post("http://localhost:5000/" + "sign-in", body);
+      const promisse = await axios.post(URL + "sign-in", body);
 
       success(promisse);
       console.log(promisse.data.token)
