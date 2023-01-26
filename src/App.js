@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Route, Routes } from 'react-router';
 import { useState } from 'react';
 import { UserContext } from './context/UserContext.js';
+import HomePage from './pages/HomePage/HomePage';
 
 
 function App() {
