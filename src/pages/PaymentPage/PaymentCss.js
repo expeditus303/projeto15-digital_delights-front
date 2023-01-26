@@ -34,15 +34,23 @@ export const Title = styled.h1`
 font-family: Tenor Sans;
 font-style: normal;
 font-weight: 400;
-font-size: 16px;
+font-size: 18px;
 color: #fff;
 `
 export const Subtitle = styled.h2`
 font-family: Tenor Sans;
 font-style: normal;
 font-weight: 400;
-font-size: 20px;
+font-size: 19px;
 color: #000;
+margin-top: 40px;
+`
+export const CardImage = styled.div`
+display: flex;
+width: 316px;
+height: 190px;
+border-radius: 16px;
+background: linear-gradient(90deg, #434343 0%, #000000 100%);
 margin-top: 30px;
 `
 
@@ -52,7 +60,7 @@ width: 100vw;
 max-width: 412px;
 align-items: center;
 justify-content: center;
-background-color: green;
+margin-top: 40px;
 button{
     width: 100vw;
     position: fixed;
@@ -67,7 +75,7 @@ button{
     cursor: pointer;
     pointer-events: ${(props) => (props.disabled ? "none" : "all")};
     opacity: ${(props) => (props.disabled ? 0.7 : 1)};
-    font-size: 20px;
+    font-size: 22px;
     line-height: 26px;
     text-align: center;
     background: #000;

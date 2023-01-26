@@ -1,4 +1,4 @@
-import { PaymentContainer, Header, Title, Subtitle, PaymentData, UpperBoxes, LowerBoxes } from "./PaymentCss";
+import { PaymentContainer, Header, Title, CardImage, Subtitle, PaymentData, UpperBoxes, LowerBoxes } from "./PaymentCss";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -45,6 +45,10 @@ export default function PaymentPage() {
                 <Subtitle>
                     MÉTODO DE PAGAMENTO
                 </Subtitle>
+
+                <CardImage>
+            
+                </CardImage>
 
                 <PaymentData>
                     <form onSubmit={sendPaymentMethod}>
