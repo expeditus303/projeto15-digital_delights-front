@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router';
 import { useState } from 'react';
 import { UserContext } from './context/UserContext.js';
 import SignInPage from './pages/SignInPage/SignInPage';
+import HomePage from './pages/HomePage/HomePage';
 
 
 function App() {
@@ -16,6 +17,10 @@ function App() {
         <Routes>
           <Route path="/sign-up" element={<SignUpPage />} />
           <Route path="/sign-in" element={<SignInPage />} />
+          <Route path="/" element={<HomePage />} />
+          {/* <Route path="/product/:id" element={<ProductPage />} /> */}
+          {/* <Route path="/cart" element={<CartPage />} /> */}
+          {/* <Route path="/checkout" element={<CheckOutPage />} /> */}
         </Routes>
       </UserContext.Provider>
     </BrowserRouter>
