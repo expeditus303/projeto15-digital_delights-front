@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "http://localhost:5003";
 
 function signUp(body) {
-    return axios.post(`${BASE_URL}/signup`, body);
+    return axios.post(`${BASE_URL}/sign-up`, body);
 }
 
 const apiAuth = {
