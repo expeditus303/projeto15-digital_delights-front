@@ -1,6 +1,7 @@
 import { PaymentContainer, Header, Title, CardImage, Subtitle, PaymentData, UpperBoxes, LowerBoxes } from "./PaymentCss";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import apiCheckOut from '../../services/apiCheckOut.js';
 
 export default function PaymentPage() {
     const navigate = useNavigate();
@@ -20,7 +21,24 @@ export default function PaymentPage() {
 
     function sendPaymentMethod(e) {
         e.preventDefault();
-        navigate("/checkout");
+
+        //body data
+        const body = {
+            name: form.name,
+            cardNumber: form.cardNumber,
+            securityCode: form.securityCode,
+            expDate: form.expDate
+        }
+
+        apiCheckOut
+        .sendPaymentMethod(body)
+        .then((res) => {
+            console.log(res.data);
+            navigate("/checkout");
+        })
+        .catch((err) => {
+            console.log(err.response.data);
+        })
     }
 
 
