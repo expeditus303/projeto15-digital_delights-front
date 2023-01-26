@@ -17,3 +17,5 @@ function sendPaymentMethod(token) {
 export const apiCart = {
     sendPaymentMethod,
 }
+
+export default apiCart;

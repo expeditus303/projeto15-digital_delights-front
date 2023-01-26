@@ -24,21 +24,25 @@ export default function PaymentPage() {
 
         //body data
         const body = {
-            name: form.name,
-            cardNumber: form.cardNumber,
-            securityCode: form.securityCode,
-            expDate: form.expDate
+            userId: '',
+            idProdutos: '',
+            paymentMethod: [{
+                name: form.name,
+                cardNumber: form.cardNumber,
+                securityCode: form.securityCode,
+                expDate: form.expDate
+            }]
         }
 
         apiCheckOut
-        .sendPaymentMethod(body)
-        .then((res) => {
-            console.log(res.data);
-            navigate("/checkout");
-        })
-        .catch((err) => {
-            console.log(err.response.data);
-        })
+            .sendPaymentMethod(body)
+            .then((res) => {
+                console.log(res.data);
+                navigate("/checkout");
+            })
+            .catch((err) => {
+                console.log(err.response.data);
+            })
     }
 
 
