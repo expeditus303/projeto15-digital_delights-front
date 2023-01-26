@@ -2,8 +2,6 @@ import { PaymentContainer, Header, Title, CardImage, Subtitle, PaymentData, Uppe
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-
-
 export default function PaymentPage() {
     const navigate = useNavigate();
 
@@ -27,73 +25,72 @@ export default function PaymentPage() {
 
 
     return (
-            <PaymentContainer>
+        <PaymentContainer>
 
-                <Header>
-                    <Link to="/">
-                        <Title>
-                            Digital
-                            <br />Delights
-                        </Title>
-                    </Link>
+            <Header>
+                <Link to="/">
+                    <Title>
+                        Digital
+                        <br />Delights
+                    </Title>
+                </Link>
 
-                    <Link to="/cart">
-                        <ion-icon name="cart-outline"></ion-icon>
-                    </Link>
-                </Header>
+                <Link to="/cart">
+                    <ion-icon name="cart-outline"></ion-icon>
+                </Link>
+            </Header>
 
-                <Subtitle>
-                    MÉTODO DE PAGAMENTO
-                </Subtitle>
+            <Subtitle>
+                MÉTODO DE PAGAMENTO
+            </Subtitle>
 
-                <CardImage>
-            
-                </CardImage>
+            <CardImage>
+            </CardImage>
 
-                <PaymentData>
-                    <form onSubmit={sendPaymentMethod}>
-                        <UpperBoxes>
-                            <input
-                                id='name'
-                                type='text'
-                                value={form.name}
-                                placeholder='Nome'
-                                onChange={handleForm}
-                                required
-                            />
-                            <input
-                                id='cardNumber'
-                                type='number'
-                                value={form.cardNumber}
-                                placeholder='Digitos do cartão'
-                                onChange={handleForm}
-                                required
-                            />
-                        </UpperBoxes>
+            <PaymentData>
+                <form onSubmit={sendPaymentMethod}>
+                    <UpperBoxes>
+                        <input
+                            id='name'
+                            type='text'
+                            value={form.name}
+                            placeholder=' Nome'
+                            onChange={handleForm}
+                            required
+                        />
+                        <input
+                            id='cardNumber'
+                            type='number'
+                            value={form.cardNumber}
+                            placeholder=' Digitos do cartão'
+                            onChange={handleForm}
+                            required
+                        />
+                    </UpperBoxes>
 
-                        <LowerBoxes>
-                            <input
-                                id='securityCode'
-                                type='number'
-                                value={form.securityCode}
-                                placeholder='Cód. de segurança'
-                                onChange={handleForm}
-                                required
-                            />
-                            <input
-                                id='expDate'
-                                type='text'
-                                value={form.expDate}
-                                placeholder='Validade'
-                                onChange={handleForm}
-                                required
-                            />
-                        </LowerBoxes>
+                    <LowerBoxes>
+                        <input
+                            id='securityCode'
+                            type='number'
+                            value={form.securityCode}
+                            placeholder=' Cód. de segurança'
+                            onChange={handleForm}
+                            required
+                        />
+                        <input
+                            id='expDate'
+                            type='text'
+                            value={form.expDate}
+                            placeholder=' Validade'
+                            onChange={handleForm}
+                            required
+                        />
+                    </LowerBoxes>
 
-                        <button type='submit'>ADICIONAR CARTÃO</button>
-                    </form>
-                </PaymentData>
+                    <button type='submit'>ADICIONAR CARTÃO</button>
+                </form>
+            </PaymentData>
 
-            </PaymentContainer>
+        </PaymentContainer>
     )
 }

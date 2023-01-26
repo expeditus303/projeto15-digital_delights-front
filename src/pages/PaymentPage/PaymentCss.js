@@ -75,7 +75,7 @@ button{
     cursor: pointer;
     pointer-events: ${(props) => (props.disabled ? "none" : "all")};
     opacity: ${(props) => (props.disabled ? 0.7 : 1)};
-    font-size: 22px;
+    font-size: 20px;
     line-height: 26px;
     text-align: center;
     background: #000;
