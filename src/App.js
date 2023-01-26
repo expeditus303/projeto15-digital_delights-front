@@ -8,7 +8,7 @@ import SignInPage from './pages/SignInPage/SignInPage';
 
 
 function App() {
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState(sessionStorage.getItem("tokenLocal"));
 
   return (
     <BrowserRouter>
