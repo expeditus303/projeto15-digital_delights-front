@@ -1,9 +1,9 @@
-import SignUpPage from './pages/SignUpPage/SignUpPage';
-
 import { BrowserRouter } from 'react-router-dom';
 import { Route, Routes } from 'react-router';
 import { useState } from 'react';
 import { UserContext } from './context/UserContext.js';
+import SignUpPage from './pages/SignUpPage/SignUpPage';
+import PaymentPage from './pages/PaymentPage/PaymentPage';
 
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
       <UserContext.Provider value={{ user, setUser }}>
         <Routes>
           <Route path="/sign-up" element={<SignUpPage />} />
+          <Route path='/payment' element={<PaymentPage />} />
        
         </Routes>
       </UserContext.Provider>
