@@ -120,7 +120,7 @@ input{
         font-size: 14px;
         font-weight: 400;
         font-style: italic;
-        align-text: center;
+        align-text: center; // da erro pois aparece que não existe a align-text
     }
 }
 `
@@ -146,7 +146,7 @@ input{
         font-size: 14px;
         font-weight: 400;
         font-style: italic;
-        align-text: center;
+        align-text: center; // da erro pois aparece que não existe a align-text
     }
 }
 `
