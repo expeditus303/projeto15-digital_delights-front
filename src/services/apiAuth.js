@@ -1,9 +1,9 @@
 import axios from "axios";
-
-const BASE_URL = "http://localhost:5000"; // colocar em .env, usar lib dotenv, e colocar aqui REACT_APP_BASE_URL
+import dotenv from "dotenv";
+dotenv.config();
 
 function signUp(body) {
-    return axios.post(`${BASE_URL}/signup`, body); //no back esta sign-up com hifen
+    return axios.post(`${REACT_APP_APU_URL}/sign-up`, body);
 }
 
 const apiAuth = {

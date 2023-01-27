@@ -1,6 +1,7 @@
 import axios from "axios";
+import dotenv from "dotenv";
 
-const BASE_URL = 'http://localhost:5003';
+dotenv.config();
 
 function createConfig(token){
     return{
@@ -11,7 +12,7 @@ function createConfig(token){
 }
 
 function sendPaymentMethod(token) {
-    return axios.post(`${BASE_URL}/payment-method`, createConfig(token));
+    return axios.post(`${REACT_APP_APU_URL}/payment-method`, createConfig(token));
 }
 
 export const apiCart = {
