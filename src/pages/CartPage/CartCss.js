@@ -1,6 +1,50 @@
 
 import styled from "styled-components";
 
+export const Conteiner = styled.div`
+    min-height:100vh;
+    width:100vw;
+    max-width:412px;
+    background-color: #FFF;
+    padding: 50px 0 46px;
+    
+    button {
+        width: 100vw;
+        position: fixed;
+        z-index:2;
+        bottom: 0;
+        height: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        pointer-events: ${(props) => (props.disabled ? "none" : "all")};
+        opacity: ${(props) => (props.disabled ? 0.7 : 1)};
+        font-size: 20px;
+        line-height: 26px;
+        text-align: center;
+        background: #000;
+        &:hover {
+            background: #E8EBEF;
+        }
+        s &:active {
+            background: #E8EBEF;
+        }
+        &:focus {
+            outline: none;
+        }
+        font-family: Tenor Sans;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 23px;
+        color: #fff;
+
+        ion-icon {
+            margin: 0 25px;
+        }
+}
+`
 
 export const Total = styled.div`
     display:flex;
@@ -59,46 +103,3 @@ export const CartTitle = styled.h1`
     letter-spacing: 3px;
 `
 
-export const Conteiner = styled.div`
-    min-height:100vh;
-    width:100vw;
-    background-color: #FFF;
-    padding: 50px 0 46px;
-    
-    button {
-        width: 100vw;
-        position: fixed;
-        z-index:2;
-        bottom: 0;
-        height: 46px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        pointer-events: ${(props) => (props.disabled ? "none" : "all")};
-        opacity: ${(props) => (props.disabled ? 0.7 : 1)};
-        font-size: 20px;
-        line-height: 26px;
-        text-align: center;
-        background: #000;
-        &:hover {
-            background: #E8EBEF;
-        }
-        s &:active {
-            background: #E8EBEF;
-        }
-        &:focus {
-            outline: none;
-        }
-        font-family: Tenor Sans;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 23px;
-        color: #fff;
-
-        ion-icon {
-            margin: 0 25px;
-        }
-}
-`

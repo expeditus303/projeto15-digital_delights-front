@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 
 export const ProductsConteiner = styled.ul`
+width:100vw;
 max-width:412px;
 display: grid;
 position:relative;
@@ -14,10 +15,28 @@ gap: 20px;
 `
 
 export const TopMenu = styled.div`
-height:60px;
+position:fixed;
+top:0;
+height:50px;
 width:412px;
-background-color:white;
+max-width:100vw;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+padding: 0 20px;
+align-items: center;
+background-color:#000;
 display:flex;
-justify-content:center;
+justify-content:space-between;
 align-items:center;
+color:#fff;
+
+ion-icon{
+    font-size: 25px;
+    color: #fff;
+}
+
+a{
+    color: #fff;
+}
 `
