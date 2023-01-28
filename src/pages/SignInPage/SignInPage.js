@@ -49,7 +49,7 @@ export default function SignInPage({ selectedProductBeforeLogin }) {
           <input
             type="email"
             name="email"
-            placeholder="email"
+            placeholder="E-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -57,7 +57,7 @@ export default function SignInPage({ selectedProductBeforeLogin }) {
           <input
             type="password"
             name="password"
-            placeholder="password"
+            placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
