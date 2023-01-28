@@ -1,10 +1,24 @@
 import styled from "styled-components";
-import { useState } from "react"
+import { useContext, useState } from "react"
+import apiCart from "../services/apiCart.js";
+import { UserContext } from "../context/UserContext";
 
-export default function CartCard({ image, price, title, id, description,total,setTotal }) {
-    const [quantity,setQuantity] = useState(0)
-    function addQuantity(inc) {
+export default function CartCard({ image, price,number, title, id, description,total,setTotal }) {
+    const {user} = useContext(UserContext)
+    const [quantity,setQuantity] = useState(number)
+    
+    
+    async function addQuantity(inc) {
+        console.log(inc)
         if (quantity<1 && inc ===-1) return
+
+        try {
+            if (inc === 1) return await apiCart.addProduct(user,id,price)
+            return await apiCart.removeOneProduct(user,id)
+        } catch (error) {
+            console.log(error)
+        }
+
         setTotal(total + inc*(Number(price)))
         setQuantity(quantity+inc)
     }

@@ -28,11 +28,16 @@ function removeOneProduct(user,productId) {
             "Authorization": `Bearer ${user}`
         }
     }
+    const body = {
+        productId
+    }
+    return axios.delete(`${process.env.REACT_APP_API_URL}/cart`, body, config)
 
 }
 const apiCart = {
     getCart,
-    addProduct
+    addProduct,
+    removeOneProduct
 }
 
 export default apiCart

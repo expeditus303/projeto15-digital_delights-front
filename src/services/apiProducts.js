@@ -5,7 +5,7 @@ function getAllProducts() {
 }
 
 function getProductById(id) {
-    return axios.get(`${process.env.REACT_APP_API_URL}/${id}`)
+    return axios.get(`${process.env.REACT_APP_API_URL}/product/${id}`)
 }
 
 const apiProducts = {
