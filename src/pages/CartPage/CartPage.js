@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import Loading from "../../components/Loading";
-import axios from "axios"
 import { UserContext } from "../../context/UserContext";
 import CartCard from "../../components/CartCard";
 import { CartTitle, Conteiner, Header, NoItemText, Total } from "./CartCss";
 import { MOCKCART } from "../../constants/mockdata";
+import apiCart from "../../services/apiCart";
 
 
 export default function CartPage() {
@@ -20,12 +20,7 @@ export default function CartPage() {
         MOCKCART.forEach(p => sumTotal += Number(p.quantity) * Number(p.price))
         setTotal(sumTotal)
 
-        // const config = {
-        //     headers: {
-        //         "Authorization": `Bearer ${user}`
-        //     }
-        // }
-        // axios.get(`${process.env.REACT_APP_API_URL}/cart`, config)
+        // apiCart.getCart(user)
         //     .then((res) => {
         //         return setCartProducts(res.data)
         //     })
