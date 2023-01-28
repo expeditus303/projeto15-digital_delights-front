@@ -25,7 +25,7 @@ export default function PaymentPage() {
         //body data
         const body = {
             userId: '',
-            idProdutos: [''],
+            idProdutos: [],
             paymentMethod: [{
                 name: form.name,
                 cardNumber: form.cardNumber,

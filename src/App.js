@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage/HomePage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import PaymentPage from './pages/PaymentPage/PaymentPage';
 import CartPage from './pages/CartPage/CartPage.js';
+import CheckOutPage from './pages/CheckOutPage/CheckOutPage.js';
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
           {/* <Route path="/product/:id" element={<ProductPage />} /> */}
           <Route path="/cart" element={<CartPage />} />
           <Route path='/payment-method' element={<PaymentPage />} />
-          {/* <Route path="/checkout" element={<CheckOutPage />} /> */}
+          <Route path="/checkout" element={<CheckOutPage />} />
         </Routes>
       </UserContext.Provider>
     </BrowserRouter>
