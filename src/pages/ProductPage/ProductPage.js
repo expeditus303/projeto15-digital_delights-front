@@ -13,7 +13,8 @@ import { HiOutlinePlusCircle, HiOutlineHeart } from "react-icons/hi";
 import { useContext, useEffect, useState } from "react";
 import Loading from "../../components/Loading";
 import { UserContext } from "../../context/UserContext";
-import apiCart from "../../services/apiCheckOut";
+import apiCart from "../../services/apiCart";
+
 
 export default function ProductPage({ listProducts, setListProducts, setSelectedProductBeforeLogin }) {
   const { id } = useParams();
@@ -57,9 +58,11 @@ export default function ProductPage({ listProducts, setListProducts, setSelected
     }
 
     const price = productSelected.price
+  
     try {
-      await apiCart.addProduct(user, id, price )
+      await apiCart.addProduct(user, id, price)
 
+      console.log("hehe")
     } catch (error) {
       console.log(error)
     }
