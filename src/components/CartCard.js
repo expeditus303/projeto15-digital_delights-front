@@ -11,16 +11,17 @@ export default function CartCard({ image, price,number, title, id, description,t
     async function addQuantity(inc) {
         console.log(inc)
         if (quantity<1 && inc ===-1) return
-
+        const newTotal = total + inc*(Number(price))
+        setTotal(newTotal)
+        const newQuantity = quantity+inc
+        setQuantity(newQuantity)
         try {
-            if (inc === 1) return await apiCart.addProduct(user,id,price)
-            return await apiCart.removeOneProduct(user,id)
+            if (inc === 1) await apiCart.addProduct(user,id,price)
+            else await apiCart.removeOneProduct(user,id)
         } catch (error) {
             console.log(error)
         }
-
-        setTotal(total + inc*(Number(price)))
-        setQuantity(quantity+inc)
+        
     }
     return (
         <Conteiner>
