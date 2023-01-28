@@ -25,7 +25,7 @@ export default function PaymentPage() {
         //body data
         const body = {
             userId: '',
-            idProdutos: [''],
+            idProdutos: [],
             paymentMethod: [{
                 name: form.name,
                 cardNumber: form.cardNumber,
@@ -63,7 +63,7 @@ export default function PaymentPage() {
             </Header>
 
             <Subtitle>
-                MÉTODO DE PAGAMENTO
+                PAYMENT METHOD
             </Subtitle>
 
             <CardImage>
@@ -76,7 +76,7 @@ export default function PaymentPage() {
                             id='name'
                             type='text'
                             value={form.name}
-                            placeholder=' Nome'
+                            placeholder=' Name'
                             onChange={handleForm}
                             required
                         />
@@ -84,7 +84,7 @@ export default function PaymentPage() {
                             id='cardNumber'
                             type='number'
                             value={form.cardNumber}
-                            placeholder=' Digitos do cartão'
+                            placeholder=' Card Number'
                             onChange={handleForm}
                             required
                         />
@@ -95,7 +95,7 @@ export default function PaymentPage() {
                             id='securityCode'
                             type='number'
                             value={form.securityCode}
-                            placeholder=' Cód. de segurança'
+                            placeholder=' CCV'
                             onChange={handleForm}
                             required
                         />
@@ -103,13 +103,13 @@ export default function PaymentPage() {
                             id='expDate'
                             type='text'
                             value={form.expDate}
-                            placeholder=' Validade'
+                            placeholder=' Exp. Date'
                             onChange={handleForm}
                             required
                         />
                     </LowerBoxes>
 
-                    <button type='submit'>ADICIONAR CARTÃO</button>
+                    <button type='submit'>ADD CARD</button>
                 </form>
             </PaymentData>
 
