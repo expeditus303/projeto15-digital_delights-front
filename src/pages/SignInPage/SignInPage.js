@@ -62,12 +62,12 @@ export default function SignInPage({ selectedProductBeforeLogin }) {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <button type="submit">Entrar</button>
+          <button type="submit">Sign In</button>
         </form>
 
         <TextContainer>
           <Link to="/sign-up">
-            <h3>Ainda não tem uma conta? Faça uma agora!</h3>
+            <h3>First time? Sign Up!</h3>
           </Link>
         </TextContainer>
       </FormContainer>

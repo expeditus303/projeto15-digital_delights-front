@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import {
   AddBasket,
   ProductContainer,
@@ -15,8 +15,11 @@ import Loading from "../../components/Loading";
 import { UserContext } from "../../context/UserContext";
 import apiCart from "../../services/apiCart";
 
-
-export default function ProductPage({ listProducts, setListProducts, setSelectedProductBeforeLogin }) {
+export default function ProductPage({
+  listProducts,
+  setListProducts,
+  setSelectedProductBeforeLogin,
+}) {
   const { id } = useParams();
 
   const navigate = useNavigate();
@@ -27,7 +30,7 @@ export default function ProductPage({ listProducts, setListProducts, setSelected
 
   const [suggestedProducts, setSuggestedProducts] = useState([]);
 
-  const [useEffectControl, setUseEffectControl] = useState(0)
+  const [useEffectControl, setUseEffectControl] = useState(0);
 
   useEffect(() => {
     if (listProducts !== undefined) {
@@ -52,37 +55,42 @@ export default function ProductPage({ listProducts, setListProducts, setSelected
 
   async function addToBasket() {
     if (user === null) {
-      alert("Please login to continue")
-      setSelectedProductBeforeLogin(id)
+      alert("Please login to continue");
+      setSelectedProductBeforeLogin(id);
       return navigate("/sign-in");
     }
 
-    const price = productSelected.price
-  
-    try {
-      await apiCart.addProduct(user, id, price)
+    const price = productSelected.price;
 
-      console.log("hehe")
+    try {
+      await apiCart.addProduct(user, id, price);
+
+      navigate("/cart");
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 
   function openSuggestedProduct(_id) {
-    navigate(`/product/${_id}`)
+    navigate(`/product/${_id}`);
     window.scrollTo(0, 0);
-    const refresh = useEffectControl + 1
-    setUseEffectControl(refresh)
+    const refresh = useEffectControl + 1;
+    setUseEffectControl(refresh);
   }
 
   return (
     <>
-      <TopMenu>
-        Digital
-        <br />
-        Delights
-      </TopMenu>
       <ProductContainer>
+        <TopMenu>
+          <Link to={"/"}>
+            Digital
+            <br />
+            Delights
+          </Link>
+          <Link to="/cart">
+            <ion-icon name="cart-outline"></ion-icon>
+          </Link>
+        </TopMenu>
         <ProductDisplay>
           <div className="image">
             <img src={productSelected.images[currentIndex]} alt="" />
