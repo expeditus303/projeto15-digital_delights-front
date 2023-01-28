@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   AddBasket,
   ProductContainer,
@@ -10,34 +10,57 @@ import {
 } from "./ProductCss";
 import { RxDotFilled, RxDot } from "react-icons/rx";
 import { HiOutlinePlusCircle, HiOutlineHeart } from "react-icons/hi";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Loading from "../../components/Loading";
+import { UserContext } from "../../context/UserContext";
 
-export default function ProductPage({ listProducts }) {
+export default function ProductPage({ listProducts, setListProducts, setSelectedProductBeforeLogin }) {
   const { id } = useParams();
+
+  const navigate = useNavigate();
+
+  const { user } = useContext(UserContext);
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const [suggestedProducts, setSuggestedProducts] = useState([])
+  const [suggestedProducts, setSuggestedProducts] = useState([]);
+
+  const [useEffectControl, setUseEffectControl] = useState(0)
 
   useEffect(() => {
-    if (listProducts != undefined) {
+    if (listProducts !== undefined) {
+      const listProductsWithoutSelected = listProducts.filter(
+        (p) => p._id !== id
+      );
 
-      const productsWithoutSelected = listProducts.filter((p) => p._id != id)
+      const randomProducts = listProductsWithoutSelected.sort(random);
 
-      const randomProducts = productsWithoutSelected.sort(random);
-  
-      setSuggestedProducts(randomProducts.slice(0, 4))
+      setSuggestedProducts(randomProducts.slice(0, 4));
     }
-  }, [listProducts]);
+  }, [listProducts, useEffectControl]);
 
   if (listProducts === undefined) return <Loading />;
 
-  const productSelectedArr = listProducts.filter((p) => p._id == id);
+  const productSelectedArr = listProducts.filter((p) => p._id === id);
   const productSelected = productSelectedArr[0];
 
   function random() {
     return Math.random() - 0.5;
+  }
+
+  function addToBasket() {
+    if (user === null) {
+      alert("Please login to continue")
+      setSelectedProductBeforeLogin(id)
+      return navigate("/sign-in");
+    }
+  }
+
+  function openSuggestedProduct(_id) {
+    navigate(`/product/${_id}`)
+    window.scrollTo(0, 0);
+    const refresh = useEffectControl + 1
+    setUseEffectControl(refresh)
   }
 
   return (
@@ -73,17 +96,17 @@ export default function ProductPage({ listProducts }) {
         </ProductDisplay>
 
         <AddBasket>
-          <div>
+          <button onClick={addToBasket}>
             <HiOutlinePlusCircle />
             <h2>Add to basket</h2>
-          </div>
+          </button>
           <HiOutlineHeart />
         </AddBasket>
 
         <h3>You may also like</h3>
         <SuggestedProducts>
           {suggestedProducts.map((e) => (
-            <div key={e._id}>
+            <button onClick={() => openSuggestedProduct(e._id)} key={e._id}>
               <div className="image">
                 <img src={e.images[0]} alt="" />
               </div>
@@ -94,7 +117,7 @@ export default function ProductPage({ listProducts }) {
                   currency: "USD",
                 })}
               </h3>
-            </div>
+            </button>
           ))}
         </SuggestedProducts>
       </ProductContainer>

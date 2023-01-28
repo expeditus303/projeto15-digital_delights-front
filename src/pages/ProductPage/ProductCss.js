@@ -22,6 +22,10 @@ export const ProductContainer = styled.div`
   margin: 20px auto;
   font-family: "Tenor Sans", Courier, monospace;
 
+  button:hover {
+    cursor: pointer;
+  }
+
   h3 {
     font-size: 16px;
     line-height: 40px;
@@ -107,9 +111,13 @@ export const AddBasket = styled.div`
   margin-bottom: 30px;
   font-size: 1.3em;
 
-  div {
+  button {
     display: flex;
     align-items: center;
+    border-style: none;
+    background-color: black;
+    color: white;
+    font-size: 1em;
   }
 
   h2 {
@@ -127,12 +135,20 @@ export const SuggestedProducts = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
 
-  div {
+  button {
     width: 165px;
     margin-bottom: 25px;
+    border-style: none;
+    font-family: "Tenor Sans", Courier, monospace;
+    display: flex;
+    flex-direction: column;
 
     img {
       width: 100%;
+    }
+
+    :hover {
+      cursor: pointer;
     }
 
     .image {

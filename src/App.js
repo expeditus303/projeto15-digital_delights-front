@@ -14,6 +14,11 @@ import ProductPage from './pages/ProductPage/ProductPage';
 
 function App() {
   const [user, setUser] = useState(sessionStorage.getItem("tokenLocal"));
+  const [selectedProductBeforeLogin, setSelectedProductBeforeLogin] = useState(undefined)
+  
+  console.log("token")
+  console.log(user)
+
   const [listProducts, setListProducts] = useState(undefined)
     useEffect(() => {
         apiProducts.getAllProducts()
@@ -25,9 +30,9 @@ function App() {
       <UserContext.Provider value={{ user, setUser }}>
         <Routes>
           <Route path="/sign-up" element={<SignUpPage />} />
-          <Route path="/sign-in" element={<SignInPage />} />
+          <Route path="/sign-in" element={<SignInPage selectedProductBeforeLogin={selectedProductBeforeLogin}/>} />
           <Route path="/" element={<HomePage listProducts={listProducts}/>} />
-          <Route path="/product/:id" element={<ProductPage listProducts={listProducts} />} />
+          <Route path="/product/:id" element={<ProductPage listProducts={listProducts} setListProducts={setListProducts} setSelectedProductBeforeLogin={setSelectedProductBeforeLogin}/>} />
           <Route path="/cart" element={<CartPage />} />
           <Route path='/payment-method' element={<PaymentPage />} />
           <Route path="/checkout" element={<CheckOutPage />} />
