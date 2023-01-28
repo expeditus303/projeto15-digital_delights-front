@@ -1,12 +1,13 @@
 import styled from "styled-components"
 
-export default function ProductCard({ image, title, price, description }) {
+//break
+export default function ProductCard({ image, title, price, description, selectProduct, id }) {
 
     const descriptionCropped = description.toLowerCase().startsWith(title.toLowerCase()) ?
         description.slice(title.length, title.length + 45) + "..." :
         description.slice(0,45)
     return (
-        <Card>
+        <Card onClick={() => selectProduct(id)}>
             <div>
                 <img src={image} alt={title} />
             </div>
