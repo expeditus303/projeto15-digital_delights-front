@@ -34,7 +34,7 @@ export const ProductContainer = styled.div`
 
 export const ProductDisplay = styled.div`
   width: 100%;
-  margin: 0px 16px;
+  margin: 0px 16px 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -89,7 +89,7 @@ export const ProductInfo = styled.div`
   }
 
   h3 {
-    margin-top: 8px;
+    margin-top: 0px;
     color: #dd8560;
     font-size: 18px;
   }
@@ -104,7 +104,7 @@ export const AddBasket = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 28px 18px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   font-size: 1.3em;
 
   div {
@@ -134,6 +134,17 @@ export const SuggestedProducts = styled.div`
     img {
       width: 100%;
     }
+
+    .image {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    background-color: white;
+    margin-top: 0px;
+  }
 
     h2 {
       font-size: 12px;

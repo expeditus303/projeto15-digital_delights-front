@@ -27,7 +27,7 @@ function App() {
           <Route path="/sign-up" element={<SignUpPage />} />
           <Route path="/sign-in" element={<SignInPage />} />
           <Route path="/" element={<HomePage listProducts={listProducts}/>} />
-          {/* <Route path="/product/:id" element={<ProductPage listProducts={listProducts} />} /> */}
+          <Route path="/product/:id" element={<ProductPage listProducts={listProducts} />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path='/payment-method' element={<PaymentPage />} />
           <Route path="/checkout" element={<CheckOutPage />} />

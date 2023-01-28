@@ -10,37 +10,35 @@ import {
 } from "./ProductCss";
 import { RxDotFilled, RxDot } from "react-icons/rx";
 import { HiOutlinePlusCircle, HiOutlineHeart } from "react-icons/hi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Loading from "../../components/Loading";
 
-export default function ProductPage() {
-  const product_ = {
-    _id: "63d2c287bcf8a249caf2b7a3",
-    id: 81,
-    title: "Round Silver Frame Sun Glasses",
-    description:
-      "A pair of sunglasses can protect your eyes from being hurt. For car driving, vacation travel, outdoor activities, social gatherings,",
-    price: 19,
-    discountPercentage: 10.1,
-    rating: 4.94,
-    stock: 78,
-    brand: "Designer Sun Glasses",
-    category: "sunglasses",
-    thumbnail: "https://i.dummyjson.com/data/products/81/thumbnail.jpg",
-    images: [
-      "https://i.dummyjson.com/data/products/81/1.jpg",
-      "https://i.dummyjson.com/data/products/81/2.jpg",
-      "https://i.dummyjson.com/data/products/81/3.jpg",
-      "https://i.dummyjson.com/data/products/81/4.webp",
-      "https://i.dummyjson.com/data/products/81/thumbnail.jpg",
-    ],
-  };
-
-  const params = useParams();
+export default function ProductPage({ listProducts }) {
+  const { id } = useParams();
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  console.log("params abaixo");
-  console.log(params);
+  const [suggestedProducts, setSuggestedProducts] = useState([])
+
+  useEffect(() => {
+    if (listProducts != undefined) {
+
+      const productsWithoutSelected = listProducts.filter((p) => p._id != id)
+
+      const randomProducts = productsWithoutSelected.sort(random);
+  
+      setSuggestedProducts(randomProducts.slice(0, 4))
+    }
+  }, [listProducts]);
+
+  if (listProducts === undefined) return <Loading />;
+
+  const productSelectedArr = listProducts.filter((p) => p._id == id);
+  const productSelected = productSelectedArr[0];
+
+  function random() {
+    return Math.random() - 0.5;
+  }
 
   return (
     <>
@@ -52,10 +50,10 @@ export default function ProductPage() {
       <ProductContainer>
         <ProductDisplay>
           <div className="image">
-            <img src={product_.images[currentIndex]} alt="" />
+            <img src={productSelected.images[currentIndex]} alt="" />
           </div>
           <ProductImage>
-            {product_.images.map((image, index) => (
+            {productSelected.images.map((image, index) => (
               <button onClick={() => setCurrentIndex(index)} key={index}>
                 {currentIndex === index ? <RxDotFilled id="dot" /> : <RxDot />}
               </button>
@@ -63,10 +61,10 @@ export default function ProductPage() {
           </ProductImage>
 
           <ProductInfo>
-            <h2>{product_.title}</h2>
-            <p>{product_.description}</p>
+            <h2>{productSelected.title}</h2>
+            <p>{productSelected.description}</p>
             <h3>
-              {Number(product_.price).toLocaleString("en-US", {
+              {Number(productSelected.price).toLocaleString("en-US", {
                 style: "currency",
                 currency: "USD",
               })}
@@ -77,56 +75,27 @@ export default function ProductPage() {
         <AddBasket>
           <div>
             <HiOutlinePlusCircle />
-            <h2>Adicionar ao carrinho</h2>
+            <h2>Add to basket</h2>
           </div>
           <HiOutlineHeart />
         </AddBasket>
-              
-        <h3>Você também pode gostar</h3>
+
+        <h3>You may also like</h3>
         <SuggestedProducts>
-          <div>
-            <img src={product_.images[0]} alt="" />
-            <h2>{product_.title}</h2>
-            <h3>
-              {Number(product_.price).toLocaleString("en-US", {
-                style: "currency",
-                currency: "USD",
-              })}
-            </h3>
-          </div>
-
-          <div>
-            <img src={product_.images[0]} alt="" />
-            <h2>{product_.title}</h2>
-            <h3>
-              {Number(product_.price).toLocaleString("en-US", {
-                style: "currency",
-                currency: "USD",
-              })}
-            </h3>
-          </div>
-
-          <div>
-            <img src={product_.images[0]} alt="" />
-            <h2>{product_.title}</h2>
-            <h3>
-              {Number(product_.price).toLocaleString("en-US", {
-                style: "currency",
-                currency: "USD",
-              })}
-            </h3>
-          </div>
-
-          <div>
-            <img src={product_.images[0]} alt="" />
-            <h2>{product_.title}</h2>
-            <h3>
-              {Number(product_.price).toLocaleString("en-US", {
-                style: "currency",
-                currency: "USD",
-              })}
-            </h3>
-          </div>
+          {suggestedProducts.map((e) => (
+            <div key={e._id}>
+              <div className="image">
+                <img src={e.images[0]} alt="" />
+              </div>
+              <h2>{e.title}</h2>
+              <h3>
+                {Number(e.price).toLocaleString("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                })}
+              </h3>
+            </div>
+          ))}
         </SuggestedProducts>
       </ProductContainer>
     </>
