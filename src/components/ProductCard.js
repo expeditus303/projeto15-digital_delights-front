@@ -1,13 +1,13 @@
+import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 
-//break
-export default function ProductCard({ image, title, price, description, selectProduct, id }) {
-
+export default function ProductCard({ image, title, price, description ,id}) {
+    const navigate = useNavigate()
     const descriptionCropped = description.toLowerCase().startsWith(title.toLowerCase()) ?
         description.slice(title.length, title.length + 45) + "..." :
         description.slice(0,45)
     return (
-        <Card onClick={() => selectProduct(id)}>
+        <Card onClick={()=>navigate(`product/${id}`)}>
             <div>
                 <img src={image} alt={title} />
             </div>
@@ -27,8 +27,9 @@ const Card = styled.li`
     flex-direction:column;
     align-items:left;
     margin: auto;
+    padding:0 10px;
     gap:5px;
-    width:165px;
+    max-width:165px;
     min-height:267px;
     img {
         max-width:100%;

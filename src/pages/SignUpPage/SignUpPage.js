@@ -57,7 +57,7 @@ export default function SignUpPage() {
                         id='name'
                         type='text'
                         value={form.name}
-                        placeholder='Nome'
+                        placeholder='Name'
                         onChange={handleForm}
                         required
                     />
@@ -75,7 +75,7 @@ export default function SignUpPage() {
                         id='password'
                         type='password'
                         value={form.password}
-                        placeholder='Senha'
+                        placeholder='Password'
                         onChange={handleForm}
                         required
                     />
@@ -84,18 +84,18 @@ export default function SignUpPage() {
                         id='confirmPassword'
                         type='password'
                         value={form.confirmPassword}
-                        placeholder='Confirme a senha'
+                        placeholder='Confirm Password'
                         onChange={handleForm}
                         required
                     />
 
 
-                    <button type='submit' >Cadastrar</button>
+                    <button type='submit' >Register</button>
                 </form>
 
                 <TextContainer>
                     <Link to='/sign-in'>
-                        <h3>Já tem uma conta? Entre agora!</h3>
+                        <h3>Do you already have an account? Sign in!</h3>
                     </Link>
                 </TextContainer>
             </FormContainer>
