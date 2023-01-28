@@ -12,8 +12,8 @@ function sendPaymentMethod(token) {
     return axios.post(`${process.env.REACT_APP_API_URL}/payment-method`, createConfig(token));
 }
 
-export const apiCart = {
+export const apiCheckout = {
     sendPaymentMethod,
 }
 
-export default apiCart;
+export default apiCheckout;

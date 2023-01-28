@@ -24,7 +24,7 @@ export default function PaymentPage() {
 
         //body data
         const body = {
-            paymentMethod: [{
+            payment: [{
                 name: form.name,
                 cardNumber: form.cardNumber,
                 securityCode: form.securityCode,
