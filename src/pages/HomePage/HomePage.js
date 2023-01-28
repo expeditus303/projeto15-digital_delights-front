@@ -23,7 +23,9 @@ export default function HomePage({listProducts}) {
                         image={e.images[0]}
                         title={e.title}
                         price={e.price}
-                        description={e.description}>
+                        description={e.description}
+                        selectProduct={selectProduct}
+                        >
                     </ProductCard>))}
             </ProductsConteiner>
         </>

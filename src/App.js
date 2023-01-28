@@ -9,6 +9,7 @@ import PaymentPage from './pages/PaymentPage/PaymentPage';
 import CartPage from './pages/CartPage/CartPage.js';
 import CheckOutPage from './pages/CheckOutPage/CheckOutPage.js';
 import apiProducts from './services/apiProducts.js';
+import ProductPage from './pages/ProductPage/ProductPage';
 
 
 function App() {
