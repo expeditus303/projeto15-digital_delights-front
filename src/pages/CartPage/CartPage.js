@@ -8,7 +8,7 @@ import { MOCKCART } from "../../constants/mockdata";
 import apiCart from "../../services/apiCart";
 
 
-export default function CartPage({listProducts}) {
+export default function CartPage({ listProducts }) {
     const { user } = useContext(UserContext)
     const [cartProducts, setCartProducts] = useState(undefined)
     const [total, setTotal] = useState(0)
@@ -19,22 +19,25 @@ export default function CartPage({listProducts}) {
         // let sumTotal = 0
         // MOCKCART.forEach(p => sumTotal += Number(p.quantity) * Number(p.price))
         // setTotal(sumTotal)
+        if (listProducts !== undefined) {
+            apiCart.getCart(user)
+                .then((res) => {
+                    const cartProducts = res.data
+                    let sumTotal = 0
+                    cartProducts.forEach(p => {
+                        const product = listProducts.find(el => el._id === p.productId)
+                        p.product = { ...product }
+                        sumTotal += Number(p.quantity) * Number(p.price)
+                    });
+                    setTotal(sumTotal)
+                    setCartProducts(cartProducts)
+                })
+                .catch((err) => console.log(err))
+        }
+    }, [listProducts])
 
-        apiCart.getCart(user)
-            .then((res) => {
-                const cartProducts = res.data
-                let sumTotal = 0
-                cartProducts.forEach(p => {
-                    const product = listProducts.find(el=>el._id === p.productId)
-                    p.product = {...product}
-                    sumTotal+= Number(p.quantity) * Number(p.price)
-                });
-                setTotal(sumTotal)
-                setCartProducts(cartProducts)
-            })
-            .catch((err) => console.log(err))
-    }, [])
     if (cartProducts === undefined) return <Loading></Loading>
+
     return (
         <Conteiner>
             <Header>
@@ -56,8 +59,8 @@ export default function CartPage({listProducts}) {
             ))}
             {cartProducts.length === 0 ? <></> :
                 <Total>
-                    <p>Sub Total</p> 
-                    <p>{Number(total).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</p> 
+                    <p>Sub Total</p>
+                    <p>{Number(total).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</p>
                 </Total>}
 
 

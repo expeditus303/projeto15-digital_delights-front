@@ -16,15 +16,15 @@ function App() {
   const [user, setUser] = useState(sessionStorage.getItem("tokenLocal"));
   const [selectedProductBeforeLogin, setSelectedProductBeforeLogin] = useState(undefined)
   
-  console.log("token")
-  console.log(user)
 
   const [listProducts, setListProducts] = useState(undefined)
+  
     useEffect(() => {
         apiProducts.getAllProducts()
             .then((res) => setListProducts(res.data))
             .catch((err) => console.log(err))
     }, [])
+
   return (
     <BrowserRouter>
       <UserContext.Provider value={{ user, setUser }}>
@@ -33,7 +33,7 @@ function App() {
           <Route path="/sign-in" element={<SignInPage selectedProductBeforeLogin={selectedProductBeforeLogin}/>} />
           <Route path="/" element={<HomePage listProducts={listProducts}/>} />
           <Route path="/product/:id" element={<ProductPage listProducts={listProducts} setListProducts={setListProducts} setSelectedProductBeforeLogin={setSelectedProductBeforeLogin}/>} />
-          <Route path="/cart" element={<CartPage />} />
+          <Route path="/cart" element={<CartPage listProducts={listProducts}/>} />
           <Route path='/payment-method' element={<PaymentPage />} />
           <Route path="/checkout" element={<CheckOutPage />} />
         </Routes>

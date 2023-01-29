@@ -10,6 +10,7 @@ export const Conteiner = styled.div`
     
     button {
         width: 100vw;
+        max-width: 412px;
         position: fixed;
         z-index:2;
         bottom: 0;
@@ -24,8 +25,9 @@ export const Conteiner = styled.div`
         line-height: 26px;
         text-align: center;
         background: #000;
+        border-style: none;
         &:hover {
-            background: #E8EBEF;
+            background: grey;
         }
         s &:active {
             background: #E8EBEF;
@@ -41,7 +43,7 @@ export const Conteiner = styled.div`
         color: #fff;
 
         ion-icon {
-            margin: 0 25px;
+            margin: 0 10px;
         }
 }
 `
@@ -77,7 +79,8 @@ export const Header = styled.div`
     position:fixed;
     top:0;
     display: flex;
-    width: 100vw;
+    width: 100%;
+    max-width: 412px;
     height: 50px;
     justify-content: space-between;
     align-items: center;
@@ -87,6 +90,10 @@ export const Header = styled.div`
         font-size: 25px;
         margin-left:20px;
         color: #fff;
+
+        :hover {
+            cursor: pointer;
+        }
     }
 
     a{
