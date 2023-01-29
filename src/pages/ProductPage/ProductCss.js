@@ -184,12 +184,15 @@ export const SuggestedProducts = styled.div`
       font-size: 12px;
       line-height: 18px;
       color: #000000;
+      text-align: left;
+      margin-top: 5px;
     }
 
     h3 {
       font-size: 15px;
       line-height: 24px;
       color: #dd8560;
+      margin-bottom: 10px;
     }
   }
 `;
