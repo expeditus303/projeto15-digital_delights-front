@@ -47,16 +47,16 @@ margin-top: 50px;
 `
 export const Text = styled.div`
 display: flex;
+flex-direction: column;
 width: 315px;
-margin: 40px auto;
+margin: 30px auto;
 justify-content: center;
-align-items: center;
-text-align: center;
+
 h3{
     font-family: Tenor Sans;
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 15px;
     color: #000;
 }
 `
@@ -67,6 +67,8 @@ display: flex;
 background-color: #000;
 width: 250px;
 height: 0.7px;
+margin-bottom: 20px;
+margin-top: 20px;
 `
 
 export const CheckOutButton = styled.button`

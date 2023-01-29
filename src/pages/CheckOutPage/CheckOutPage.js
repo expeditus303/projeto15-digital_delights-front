@@ -1,8 +1,18 @@
 import { Header, CheckoutContainer, Title, Subtitle, Text, Line, CheckOutButton,CartOverall, Product } from "./CheckOutCss";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import apiCheckout from "../../services/apiCheckOut";
+import { useState } from "react";
 
 
 export default function CheckOutPage() {
+    const [products, setProducts] = useState([]);  
+
+    useEffect(() => {
+        apiCheckout.getPaymentMethod()
+        .then((res) => setProducts(res.data))
+        .catch((err) => console.log(err));
+    }, [])
 
     return (
         <CheckoutContainer>
@@ -26,14 +36,21 @@ export default function CheckOutPage() {
 
             <Text>
                 <h3>
-                    Thank you for shopping with us, Rafaela Oliveira!
+                    Hello, Rafaela Oliveira!
                     <br />
                     <br />
-                    We really appreciate it. Enjoy 10% off your next purchase with this coupon code: THANKYOU10
+                    Please, confirm all the information below before submitting your purchase:
+                    <br />
+                    <br />
+                    Payment Method: 
+                    <br />
+                    Credit Card ending in 4242
                 </h3>
-            </Text>
 
-            <Line></Line>
+                <Line></Line>
+
+                <h3>Your cart overall:</h3>
+            </Text>
 
             <CartOverall>
                 <Product>
