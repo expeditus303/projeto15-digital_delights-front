@@ -30,6 +30,8 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 color:#fff;
+font-family: 'Tenor Sans', sans-serif;
+letter-spacing: 3px;
 
 ion-icon{
     font-size: 25px;
