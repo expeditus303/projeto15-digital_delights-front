@@ -21,7 +21,7 @@ export default function SignInPage({ selectedProductBeforeLogin }) {
     };
 
     try {
-      const promisse = await axios.post("http://localhost:5000/" + "sign-in", body);
+      const promisse = await axios.post(`${process.env.REACT_APP_API_URL}/sign-in`, body);
 
       success(promisse);
       console.log(promisse.data.token)
