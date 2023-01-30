@@ -14,13 +14,13 @@ export default function HomePage({ listProducts }) {
     const [search, setSearch] = useState(false);
     const filteredProducts = useMemo(() => {
         return listProducts?.filter(product => product.title.toLowerCase().includes(query.toLowerCase()))
-    }, [query])
+    }, [query, listProducts])
 
     function handleChange(e) {
         setQuery(e.target.value);
     }
 
-    if (listProducts === undefined) return <Loading></Loading>
+    if (filteredProducts === undefined) return <Loading></Loading>
     return (
         <>
 

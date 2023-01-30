@@ -112,8 +112,12 @@ import {
               <input
                 id="cardNumber"
                 type="number"
+                inputMode="numeric"
+                pattern="[0-9\s]{13,16}"
+                autoComplete="cc-number" 
+                maxLength="16" 
+                placeholder="xxxx xxxx xxxx xxxx"
                 value={form.cardNumber}
-                placeholder=" Card Number"
                 onChange={handleForm}
                 required
               />

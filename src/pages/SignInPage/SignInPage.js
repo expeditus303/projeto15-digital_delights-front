@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import { FormContainer, SignInContainer, TextContainer, Title } from "./SignInCss";
 
-export default function SignInPage({ selectedProductBeforeLogin }) {
+export default function SignInPage({ selectedProductBeforeLogin, setUserName}) {
   const { setUser } = useContext(UserContext);
 
   const [email, setEmail] = useState("");
@@ -32,6 +32,7 @@ export default function SignInPage({ selectedProductBeforeLogin }) {
   }
 
   function success(promisse) {
+    setUserName(promisse.data.name)
     setUser(promisse.data.token);
     sessionStorage.setItem("tokenLocal", promisse.data.token)
 
