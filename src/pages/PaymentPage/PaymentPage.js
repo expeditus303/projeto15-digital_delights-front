@@ -32,18 +32,13 @@ import {
     let cardLogo = undefined;
   
     if (firstDigit == "4") {
-      console.log("É visa!");
+
       cardLogo = Visa;
     } else if (firstDigit == "5") {
-      console.log("É master!");
+
       cardLogo = Mastercard;
     }
-  
-    // if (firstDigit === 4) {
-    //     console.log("é visa!")
-    //     setCardLogo(Visa)
-    // }
-  
+
     function handleForm(e) {
       setForm({
         ...form,

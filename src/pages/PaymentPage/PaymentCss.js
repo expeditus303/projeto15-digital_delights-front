@@ -111,7 +111,8 @@ export const PaymentData = styled.div`
     text-align: center;
     background: #000;
     &:hover {
-      background: #e8ebef;
+      background: grey;
+      border-style: none;
     }
     s &:active {
       background: #e8ebef;
