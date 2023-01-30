@@ -150,7 +150,7 @@ export const UpperBoxes = styled.div`
       font-size: 14px;
       font-weight: 400;
       font-style: italic;
-      align-text: center; // da erro pois aparece que não existe a align-text
+      /* align-text: center; // da erro pois aparece que não existe a align-text */
     }
   }
 `;
@@ -176,7 +176,7 @@ export const LowerBoxes = styled.div`
       font-size: 14px;
       font-weight: 400;
       font-style: italic;
-      align-text: center; // da erro pois aparece que não existe a align-text
+      /* align-text: center; // da erro pois aparece que não existe a align-text */
     }
   }
 `;
