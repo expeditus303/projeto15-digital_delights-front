@@ -8,8 +8,8 @@ function createConfig(token){
     }
 }
 
-function sendPaymentMethod(token) {
-    return axios.post(`${process.env.REACT_APP_API_URL}/payment-method`, createConfig(token));
+function sendPaymentMethod(body, token) {
+    return axios.post(`${process.env.REACT_APP_API_URL}/payment-method`, body, createConfig(token));
 }
 
 function getPaymentMethod(token) {

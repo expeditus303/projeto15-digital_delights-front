@@ -2,9 +2,12 @@ import { PaymentContainer, Header, Title, CardImage, Subtitle, PaymentData, Uppe
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import apiCheckOut from '../../services/apiCheckOut.js';
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext.js";
 
 export default function PaymentPage() {
     const navigate = useNavigate();
+    const { user } = useContext(UserContext);
 
     const [form, setForm] = useState({
         name: "",
@@ -24,16 +27,16 @@ export default function PaymentPage() {
 
         //body data
         const body = {
-            payment: [{
-                name: form.name,
-                cardNumber: form.cardNumber,
-                securityCode: form.securityCode,
-                expDate: form.expDate
-            }]
+
+            name: form.name,
+            cardNumber: form.cardNumber,
+            cvv: form.securityCode,
+            expDate: form.expDate
+
         }
 
         apiCheckOut
-            .sendPaymentMethod(body)
+            .sendPaymentMethod(body, user)
             .then((res) => {
                 console.log(res.data);
                 navigate("/checkout");

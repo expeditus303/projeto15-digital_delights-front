@@ -64,7 +64,7 @@ export default function CartPage({ listProducts }) {
                 </Total>}
 
 
-            <button>
+            <button onClick={() => navigate('/payment-method')}>
                 <ion-icon name="bag-handle-outline"></ion-icon>
                 <p> Buy now </p>
             </button>

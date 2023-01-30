@@ -3,16 +3,22 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import apiCheckout from "../../services/apiCheckOut";
 import { useState } from "react";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext.js";
+import apiCart from "../../services/apiCart";
 
 
 export default function CheckOutPage() {
     const [products, setProducts] = useState([]);  
+    const { user } = useContext(UserContext);
 
     useEffect(() => {
-        apiCheckout.getPaymentMethod()
+        apiCheckout.getPaymentMethod(user)
         .then((res) => setProducts(res.data))
         .catch((err) => console.log(err));
     }, [])
+
+    console.log(products)
 
     return (
         <CheckoutContainer>
@@ -58,7 +64,7 @@ export default function CheckOutPage() {
                 </Product>
             </CartOverall>
 
-            <CheckOutButton>
+            <CheckOutButton onClick={() => apiCart.emptyCart(user)}>
                 CHECKOUT
             </CheckOutButton>
 
