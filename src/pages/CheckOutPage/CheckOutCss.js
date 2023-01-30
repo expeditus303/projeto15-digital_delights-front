@@ -17,6 +17,7 @@ position:fixed;
 top:0;
 display: flex;
 width: 100vw;
+max-width: 412px;
 height: 50px;
 flex-direction: row;
 justify-content: space-between;
@@ -77,13 +78,14 @@ margin-top: 20px;
 
 export const CheckOutButton = styled.button`
 width: 100vw;
+max-width: 412px;
+margin: auto;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     height: 46px;
     display: flex;
-    margin-top: 50px;
     align-items: center;
     justify-content: center;
     cursor: pointer;

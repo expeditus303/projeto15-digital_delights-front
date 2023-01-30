@@ -6,8 +6,14 @@ export default function ProductCard({ image, title, price, description ,id}) {
     const descriptionCropped = description.toLowerCase().startsWith(title.toLowerCase()) ?
         description.slice(title.length, title.length + 45) + "..." :
         description.slice(0,45)
+
+    function openProduct() {
+        navigate(`product/${id}`)
+        window.scrollTo(0, 0);
+    }
+    
     return (
-        <Card onClick={()=>navigate(`product/${id}`)}>
+        <Card onClick={openProduct}>
             <div>
                 <img src={image} alt={title} />
             </div>
