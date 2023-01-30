@@ -1,8 +1,6 @@
 import { Header, CheckoutContainer, Title, Subtitle, Text, Line, CheckOutButton, CartOverall, Product } from "./CheckOutCss";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import apiCheckout from "../../services/apiCheckOut";
-import { useState } from "react";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext.js";
 import apiCart from "../../services/apiCart";
@@ -10,13 +8,8 @@ import CartList from "../../components/CarList";
 
 
 export default function CheckOutPage({ paymentInfo, listProducts }) {
-    // const [payment, setPayment] = useState([]);
     const { user } = useContext(UserContext);
     const navigate = useNavigate()
-
-    // useEffect(() => {
-    //     setPayment(paymentInfo)
-    // }, [])
 
     async function submitOrder() {
         console.log(user)

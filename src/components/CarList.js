@@ -13,7 +13,6 @@ export default function CartList({ listProducts }) {
     useEffect(() => {
 
         if (listProducts !== undefined) {
-            console.log(user)
             apiCart.getCart(user)
                 .then((res) => {
                     const cartProducts = res.data

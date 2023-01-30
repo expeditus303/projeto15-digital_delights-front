@@ -1,13 +1,11 @@
 import { PaymentContainer, Header, Title, CardImage, Subtitle, PaymentData, UpperBoxes, LowerBoxes } from "./PaymentCss";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import apiCheckOut from '../../services/apiCheckOut.js';
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext.js";
 
 export default function PaymentPage({paymentInfo, setPaymentInfo}) {
     const navigate = useNavigate();
-    const { user } = useContext(UserContext);
 
     const [form, setForm] = useState({
         name: paymentInfo?.name || "",
@@ -24,8 +22,6 @@ export default function PaymentPage({paymentInfo, setPaymentInfo}) {
 
     function sendPaymentMethod(e) {
         e.preventDefault();
-        console.log(user)
-        //body data
         const body = {
 
             name: form.name,
@@ -36,15 +32,6 @@ export default function PaymentPage({paymentInfo, setPaymentInfo}) {
         }
         setPaymentInfo(body)
         navigate("/checkout")
-        // apiCheckOut
-        //     .sendPaymentMethod(body, user)
-        //     .then((res) => {
-        //         console.log(res.data);
-        //         navigate("/checkout");
-        //     })
-        //     .catch((err) => {
-        //         console.log(err.response.data);
-        //     })
     }
 
 

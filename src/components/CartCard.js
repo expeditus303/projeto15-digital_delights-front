@@ -9,7 +9,6 @@ export default function CartCard({ image, price,number, title, id, description,t
     
     
     async function addQuantity(inc) {
-        console.log(inc)
         if (quantity<1 && inc ===-1) return
         const newTotal = total + inc*(Number(price))
         setTotal(newTotal)
