@@ -95,7 +95,8 @@ export const CheckOutButton = styled.button`
   text-align: center;
   background: #000;
   &:hover {
-    background: #e8ebef;
+    background: grey;
+    border-style: none;
   }
   s &:active {
     background: #e8ebef;
@@ -129,11 +130,74 @@ export const SuccessContainer = styled.div`
   display: ${(props) => (props.showSuccess ? "flex" : "none")};
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-color: #fff;
   /* height: 100vh; */
   padding: 50px 0 46px;
   min-height: 100vh;
   width: 100vw;
   max-width: 412px;
-  background-color: yellow;
+
+  .icon {
+    font-size: 100px;
+    color: green;
+  }
+  div {
+    width: 343px;
+    height: 374px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      font-family: "Tenor Sans";
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 40px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #000000;
+      margin-bottom: 50px;
+    }
+
+    button {
+      width: 180px;
+      height: 60px;
+      background-color: black;
+      color: white;
+      font-family: "Tenor Sans";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+      text-transform: uppercase;
+      border-style: none;
+
+      :hover {
+        cursor: pointer;
+      }
+    }
+
+    h2 {
+      font-family: "Tenor Sans";
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 24px;
+      text-align: center;
+      color: #333333;
+    }
+
+    p {
+      font-family: "Tenor Sans";
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 24px;
+      color: #555555;
+    }
+
+    .container {
+        justify-content: center;
+    }
+  }
 `;

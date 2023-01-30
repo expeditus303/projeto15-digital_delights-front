@@ -16,7 +16,7 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext.js";
 import apiCart from "../../services/apiCart";
 import CartList from "../../components/CarList";
-import { BsCheck2Circle } from 'react-icons/bs';
+import { BsCheck2Circle } from "react-icons/bs";
 
 export default function CheckOutPage({ paymentInfo, listProducts }) {
   const { user } = useContext(UserContext);
@@ -50,14 +50,19 @@ export default function CheckOutPage({ paymentInfo, listProducts }) {
 
   return (
     <>
-        <SuccessContainer showSuccess={showSuccess}>
+      <SuccessContainer showSuccess={showSuccess}>
         <div>
-            <h1>Payment success</h1>
-            <BsCheck2Circle />
+          <h1>Payment success</h1>
+          <BsCheck2Circle className="icon" />
+          <div className="container">
             <h2>Your payment was success</h2>
             <p>Payment ID {}</p>
+          </div>
+          <Link to="/">
+            <button>Back to home</button>
+          </Link>
         </div>
-        </SuccessContainer>
+      </SuccessContainer>
       <CheckoutContainer showSuccess={showSuccess}>
         <Header>
           <Link to="/">
