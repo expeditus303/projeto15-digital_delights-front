@@ -61,6 +61,7 @@ h3{
     font-weight: 400;
     font-size: 15px;
     color: #000;
+    line-height: 22px;
 }
 `
 

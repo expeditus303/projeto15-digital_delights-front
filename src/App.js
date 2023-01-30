@@ -14,6 +14,7 @@ import ProductPage from './pages/ProductPage/ProductPage';
 
 function App() {
   const [user, setUser] = useState(sessionStorage.getItem("tokenLocal"));
+  const [userName, setUserName] = useState("");
   const [selectedProductBeforeLogin, setSelectedProductBeforeLogin] = useState(undefined)
   const [paymentInfo, setPaymentInfo] = useState(undefined)
 
@@ -30,12 +31,12 @@ function App() {
       <UserContext.Provider value={{ user, setUser }}>
         <Routes>
           <Route path="/sign-up" element={<SignUpPage />} />
-          <Route path="/sign-in" element={<SignInPage selectedProductBeforeLogin={selectedProductBeforeLogin}/>} />
+          <Route path="/sign-in" element={<SignInPage selectedProductBeforeLogin={selectedProductBeforeLogin} setUserName={setUserName}/>} />
           <Route path="/" element={<HomePage listProducts={listProducts}/>} />
           <Route path="/product/:id" element={<ProductPage listProducts={listProducts} setListProducts={setListProducts} setSelectedProductBeforeLogin={setSelectedProductBeforeLogin}/>} />
           <Route path="/cart" element={<CartPage listProducts={listProducts}/>} />
           <Route path='/payment-method' element={<PaymentPage paymentInfo={paymentInfo} setPaymentInfo={setPaymentInfo}  />} />
-          <Route path="/checkout" element={<CheckOutPage paymentInfo={paymentInfo} listProducts={listProducts} />} />
+          <Route path="/checkout" element={<CheckOutPage paymentInfo={paymentInfo} listProducts={listProducts} userName={userName}/>} />
         </Routes>
       </UserContext.Provider>
     </BrowserRouter>

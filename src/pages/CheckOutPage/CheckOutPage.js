@@ -7,18 +7,21 @@ import apiCart from "../../services/apiCart";
 import CartList from "../../components/CarList";
 
 
-export default function CheckOutPage({ paymentInfo, listProducts }) {
+export default function CheckOutPage({ paymentInfo, listProducts, userName }) {
     const { user } = useContext(UserContext);
     const navigate = useNavigate()
+    console.log(paymentInfo)
+
+
 
     async function submitOrder() {
-        console.log(user)
+
 
         try {
             const checkPayment = await apiCheckout.sendPaymentMethod(paymentInfo, user)
             console.log(checkPayment.data);
             console.log(user)
-            
+
         } catch (error) {
             console.log(user)
             return console.log(error)
@@ -54,7 +57,7 @@ export default function CheckOutPage({ paymentInfo, listProducts }) {
 
             <Text>
                 <h3>
-                    Hello, Rafaela Oliveira!
+                    Hello, {userName}!
                     <br />
                     <br />
                     Please, confirm all the information below before submitting your purchase:
@@ -62,7 +65,11 @@ export default function CheckOutPage({ paymentInfo, listProducts }) {
                     <br />
                     Payment Method:
                     <br />
-                    Credit Card ending in 4242
+                    Name: {paymentInfo.name}
+                    <br />
+                    Credit Card ending in {paymentInfo.cardNumber.slice(-4)}
+
+
                 </h3>
 
                 <Line></Line>
