@@ -4,14 +4,11 @@ import styled from "styled-components"
 export const ProductsConteiner = styled.ul`
 width:100vw;
 max-width:412px;
-display: grid;
 position:relative;
 inset:0;
 margin: 20px auto;
-padding: 20px 0;
+padding: 40px 0;
 background-color:#FFF;
-grid-template-columns: auto auto;
-gap: 20px;
 `
 
 export const TopMenu = styled.div`
@@ -40,5 +37,34 @@ ion-icon{
 
 a{
     color: #fff;
+}
+
+`
+
+export const Grid = styled.div`
+display: grid;
+grid-template-columns: auto auto;
+gap: 20px;
+`
+
+export const Search = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+gap: 10px;
+input{
+    border-radius: 10px;
+    border: 1px solid #000;
+    padding-left: 11px;
+    height: 25px;
+    border-style: none;
+    &:focus{
+        outline: none;
+    }
+    &::placeholder{
+        font-family: 'Tenor Sans', sans-serif;
+
+    }
 }
 `
