@@ -18,15 +18,25 @@ import apiCart from "../../services/apiCart";
 import CartList from "../../components/CarList";
 import { BsCheck2Circle } from "react-icons/bs";
 
-export default function CheckOutPage({ paymentInfo, listProducts }) {
-  const { user } = useContext(UserContext);
-  const navigate = useNavigate();
+export default function CheckOutPage({ paymentInfo, listProducts, userName }) {
+    const { user } = useContext(UserContext);
+    const navigate = useNavigate()
+    console.log(paymentInfo)
 
-  const [showSuccess, setShowSuccess] = useState(false);
 
-  async function submitOrder() {
-    console.log(user);
-    setShowSuccess(true);
+
+    async function submitOrder() {
+
+
+        try {
+            const checkPayment = await apiCheckout.sendPaymentMethod(paymentInfo, user)
+            console.log(checkPayment.data);
+            console.log(user)
+
+        } catch (error) {
+            console.log(user)
+            return console.log(error)
+        }
 
     try {
       const checkPayment = await apiCheckout.sendPaymentMethod(
@@ -80,19 +90,22 @@ export default function CheckOutPage({ paymentInfo, listProducts }) {
 
         <Subtitle>CHECKOUT</Subtitle>
 
-        <Text>
-          <h3>
-            Hello, Rafaela Oliveira!
-            <br />
-            <br />
-            Please, confirm all the information below before submitting your
-            purchase:
-            <br />
-            <br />
-            Payment Method:
-            <br />
-            Credit Card ending in 4242
-          </h3>
+            <Text>
+                <h3>
+                    Hello, {userName}!
+                    <br />
+                    <br />
+                    Please, confirm all the information below before submitting your purchase:
+                    <br />
+                    <br />
+                    Payment Method:
+                    <br />
+                    Name: {paymentInfo.name}
+                    <br />
+                    Credit Card ending in {paymentInfo.cardNumber.slice(-4)}
+
+
+                </h3>
 
           <Line></Line>
 

@@ -62,8 +62,9 @@ export const Text = styled.div`
     font-weight: 400;
     font-size: 15px;
     color: #000;
-  }
-`;
+    line-height: 22px;
+}
+`
 
 export const Line = styled.div`
   margin: 0 auto;
