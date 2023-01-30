@@ -87,8 +87,12 @@ export default function ProductPage({
             <br />
             Delights
           </Link>
-          <Link to="/cart">
-            <ion-icon name="cart-outline"></ion-icon>
+          <Link to={user === null ? "/sign-in" : "/cart"}>
+            {user === null ? (
+              <ion-icon name="person-circle-outline" />
+            ) : (
+              <ion-icon name="cart-outline" />
+            )}
           </Link>
         </TopMenu>
         <ProductDisplay>
