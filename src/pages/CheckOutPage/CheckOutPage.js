@@ -18,18 +18,25 @@ export default function CheckOutPage({ paymentInfo, listProducts }) {
     //     setPayment(paymentInfo)
     // }, [])
 
-    function submitOrder() {
+    async function submitOrder() {
         console.log(user)
-        apiCheckout
-            .sendPaymentMethod(paymentInfo, user)
-            .then((res) => {
-                console.log(res.data);
-                navigate("/checkout");
-            })
-            .catch((err) => {
-                console.log(err.response.data);
-            })
-        apiCart.emptyCart(user)
+
+        try {
+            const checkPayment = await apiCheckout.sendPaymentMethod(paymentInfo, user)
+            console.log(checkPayment.data);
+            console.log(user)
+            
+        } catch (error) {
+            console.log(user)
+            return console.log(error)
+        }
+
+        try {
+            const checkEmpty = await apiCart.emptyCart(user)
+            console.log(checkEmpty.data)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (
