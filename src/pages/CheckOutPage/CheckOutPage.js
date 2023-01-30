@@ -9,7 +9,7 @@ import apiCart from "../../services/apiCart";
 import CartList from "../../components/CarList";
 
 
-export default function CheckOutPage({ paymentInfo, listProducts}) {
+export default function CheckOutPage({ paymentInfo, listProducts }) {
     // const [payment, setPayment] = useState([]);
     const { user } = useContext(UserContext);
     const navigate = useNavigate()
