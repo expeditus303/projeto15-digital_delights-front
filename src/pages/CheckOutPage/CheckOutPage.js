@@ -23,11 +23,11 @@ export default function CheckOutPage({ paymentInfo, listProducts, userName }) {
     const navigate = useNavigate()
     console.log(paymentInfo)
 
-
+    const [showSuccess, setShowSuccess] = useState(false)
 
     async function submitOrder() {
 
-
+      setShowSuccess(true)
         try {
             const checkPayment = await apiCheckout.sendPaymentMethod(paymentInfo, user)
             console.log(checkPayment.data);
@@ -56,6 +56,7 @@ export default function CheckOutPage({ paymentInfo, listProducts, userName }) {
     } catch (error) {
       console.log(error);
     }
+
   }
 
   return (
