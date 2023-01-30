@@ -48,33 +48,6 @@ export const Conteiner = styled.div`
 }
 `
 
-export const Total = styled.div`
-    display:flex;
-    justify-content:space-between;
-    margin:0 30px 20px;
-    border-top: solid 1px #333333;
-    font-family: 'Tenor Sans';
-    color: #333333;
-    font-size: 14px;
-    line-height: 34px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    p:nth-child(2){
-        font-family: 'Tenor Sans';
-        font-size: 16px;
-        letter-spacing: 3px;
-        color: #DD8560;
-    }
-`
-export const NoItemText = styled.h2`
-    text-align:center;
-    margin:50% 0;
-    font-family: 'Tenor Sans';
-    font-style: normal;
-    font-size: 16px;
-    line-height: 20px;
-    color: #888888;
-`
 export const Header = styled.div`
     position:fixed;
     top:0;

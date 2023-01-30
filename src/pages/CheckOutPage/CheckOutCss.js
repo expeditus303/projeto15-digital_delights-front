@@ -5,13 +5,16 @@ display: flex;
 flex-direction: column;
 align-items: center;
 background-color: #FFF;
-height: 100vh;
-max-height: 100vh;
+/* height: 100vh; */
+padding: 50px 0 46px;
+min-height: 100vh;
 width: 100vw;
 max-width: 412px;
 position: relative;
 `
 export const Header = styled.div`
+position:fixed;
+top:0;
 display: flex;
 width: 100vw;
 height: 50px;

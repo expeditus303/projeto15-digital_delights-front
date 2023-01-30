@@ -5,15 +5,15 @@ import apiCheckOut from '../../services/apiCheckOut.js';
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext.js";
 
-export default function PaymentPage() {
+export default function PaymentPage({paymentInfo, setPaymentInfo}) {
     const navigate = useNavigate();
     const { user } = useContext(UserContext);
 
     const [form, setForm] = useState({
-        name: "",
-        cardNumber: "",
-        securityCode: "",
-        expDate: ""
+        name: paymentInfo?.name || "",
+        cardNumber: paymentInfo?.cardNumber || "",
+        securityCode: paymentInfo?.cvv || "",
+        expDate: paymentInfo?.expDate || ""
     });
 
     function handleForm(e) {
@@ -24,7 +24,7 @@ export default function PaymentPage() {
 
     function sendPaymentMethod(e) {
         e.preventDefault();
-
+        console.log(user)
         //body data
         const body = {
 
@@ -34,16 +34,17 @@ export default function PaymentPage() {
             expDate: form.expDate
 
         }
-
-        apiCheckOut
-            .sendPaymentMethod(body, user)
-            .then((res) => {
-                console.log(res.data);
-                navigate("/checkout");
-            })
-            .catch((err) => {
-                console.log(err.response.data);
-            })
+        setPaymentInfo(body)
+        navigate("/checkout")
+        // apiCheckOut
+        //     .sendPaymentMethod(body, user)
+        //     .then((res) => {
+        //         console.log(res.data);
+        //         navigate("/checkout");
+        //     })
+        //     .catch((err) => {
+        //         console.log(err.response.data);
+        //     })
     }
 
 
