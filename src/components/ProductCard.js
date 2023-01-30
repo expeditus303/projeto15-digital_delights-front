@@ -37,6 +37,10 @@ const Card = styled.li`
         object-fit:scale-down;
     }
 
+    :hover {
+        cursor: pointer;
+    }
+
 `
 
 const Info = styled.ul`
